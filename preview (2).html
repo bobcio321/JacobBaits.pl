@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacob Baits - Sklep Wędkarski</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f4f4f4;
+color:#111827;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+display:block;
+}
+
+.container{
+max-width:1280px;
+margin:auto;
+padding:0 14px;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:#111827;
+color:white;
+font-size:13px;
+padding:8px;
+text-align:center;
+}
+
+/* HEADER */
+
+header{
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+
+.header-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+padding:14px 0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:28px;
+font-weight:900;
+color:#14532d;
+white-space:nowrap;
+}
+
+.logo svg{
+width:56px;
+height:56px;
+flex-shrink:0;
+}
+
+.search{
+flex:1;
+display:flex;
+max-width:520px;
+background:#f3f4f6;
+border-radius:12px;
+overflow:hidden;
+border:2px solid transparent;
+transition:.2s;
+}
+
+.search:focus-within{
+border-color:#16a34a;
+}
+
+.search input{
+flex:1;
+padding:14px;
+border:none;
+background:transparent;
+outline:none;
+font-size:15px;
+}
+
+.search button{
+background:#16a34a;
+color:white;
+border:none;
+padding:0 18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.header-icons{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.icon-btn{
+width:46px;
+height:46px;
+border-radius:12px;
+background:#f3f4f6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:21px;
+position:relative;
+cursor:pointer;
+transition:.2s;
+}
+
+.icon-btn:hover{
+background:#e5e7eb;
+}
+
+.cart-count{
+position:absolute;
+top:-5px;
+right:-5px;
+width:22px;
+height:22px;
+border-radius:50%;
+background:#16a34a;
+color:white;
+font-size:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+}
+
+/* MENU */
+
+.menu{
+background:#15803d;
+overflow:auto;
+}
+
+.menu .container{
+display:flex;
+gap:24px;
+}
+
+.menu a{
+color:white;
+padding:14px 0;
+font-weight:600;
+white-space:nowrap;
+border-bottom:3px solid transparent;
+transition:.2s;
+}
+
+.menu a:hover{
+border-color:white;
+}
+
+/* HERO */
+
+.hero{
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1504274066651-8d31a536b11a?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+height:520px;
+color:white;
+}
+
+.hero-content{
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.hero-badge{
+background:#16a34a;
+padding:10px 16px;
+border-radius:999px;
+width:max-content;
+font-weight:700;
+margin-bottom:18px;
+}
+
+.hero h1{
+font-size:58px;
+max-width:700px;
+line-height:1.05;
+margin-bottom:18px;
+}
+
+.hero p{
+font-size:18px;
+max-width:560px;
+line-height:1.7;
+margin-bottom:28px;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 24px;
+border-radius:12px;
+font-weight:800;
+transition:.2s;
+display:inline-block;
+}
+
+.btn-primary{
+background:#16a34a;
+color:white;
+}
+
+.btn-secondary{
+background:white;
+color:#111827;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+/* FEATURES */
+
+.features{
+margin-top:-40px;
+position:relative;
+z-index:5;
+}
+
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.feature{
+background:white;
+padding:22px;
+border-radius:18px;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.feature h3{
+margin:12px 0;
+}
+
+/* SECTIONS */
+
+section{
+padding:55px 0;
+}
+
+.section-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
+}
+
+.section-header h2{
+font-size:32px;
+}
+
+/* CATEGORIES */
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+}
+
+.category{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 3px 14px rgba(0,0,0,.05);
+transition:.2s;
+}
+
+.category:hover{
+transform:translateY(-4px);
+}
+
+.category img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.category-content{
+padding:16px;
+}
+
+.category-content h3{
+margin-bottom:8px;
+}
+
+.category-content p{
+color:#6b7280;
+font-size:14px;
+line-height:1.5;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
+
+.product{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 3px 14px rgba(0,0,0,.05);
+position:relative;
+transition:.2s;
+}
+
+.product:hover{
+transform:translateY(-4px);
+}
+
+.product img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.product-tag{
+position:absolute;
+top:12px;
+left:12px;
+background:#16a34a;
+color:white;
+padding:7px 12px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+}
+
+.product-content{
+padding:18px;
+}
+
+.product-title{
+font-size:18px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.product-desc{
+font-size:14px;
+line-height:1.6;
+color:#6b7280;
+margin-bottom:16px;
+min-height:44px;
+}
+
+.price-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:14px;
+}
+
+.price{
+font-size:28px;
+font-weight:900;
+color:#15803d;
+}
+
+.old-price{
+font-size:14px;
+color:#9ca3af;
+text-decoration:line-through;
+}
+
+.buy-btn{
+width:100%;
+padding:14px;
+border:none;
+background:#15803d;
+color:white;
+font-weight:800;
+border-radius:12px;
+cursor:pointer;
+transition:.2s;
+}
+
+.buy-btn:hover{
+background:#166534;
+}
+
+/* BANNER */
+
+.banner{
+background:linear-gradient(135deg,#14532d,#166534);
+color:white;
+border-radius:24px;
+padding:40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.banner h2{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.banner p{
+line-height:1.7;
+max-width:560px;
+}
+
+/* FOOTER */
+
+footer{
+background:#111827;
+color:white;
+padding:60px 0;
+margin-top:50px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+footer h3{
+margin-bottom:14px;
+}
+
+footer a,
+footer p{
+color:#d1d5db;
+line-height:1.9;
+display:block;
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+right:-420px;
+top:0;
+width:400px;
+max-width:100%;
+height:100vh;
+background:white;
+z-index:3000;
+box-shadow:-10px 0 40px rgba(0,0,0,.2);
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+
+.cart.open{
+right:0;
+}
+
+.cart-header{
+padding:20px;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:800;
+font-size:22px;
+}
+
+.close-cart{
+font-size:28px;
+cursor:pointer;
+}
+
+.cart-items{
+flex:1;
+overflow:auto;
+padding:18px;
+}
+
+.cart-item{
+display:flex;
+gap:12px;
+margin-bottom:18px;
+background:#f9fafb;
+padding:10px;
+border-radius:12px;
+}
+
+.cart-item img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.cart-item h4{
+font-size:15px;
+margin-bottom:6px;
+}
+
+.cart-footer{
+padding:20px;
+border-top:1px solid #eee;
+}
+
+.total{
+font-size:24px;
+font-weight:900;
+margin-bottom:14px;
+}
+
+.checkout-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#16a34a;
+color:white;
+font-weight:800;
+font-size:16px;
+cursor:pointer;
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+opacity:0;
+pointer-events:none;
+transition:.2s;
+z-index:2000;
+}
+
+.overlay.show{
+opacity:1;
+pointer-events:auto;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.header-top{
+flex-wrap:wrap;
+}
+
+.search{
+order:3;
+width:100%;
+max-width:none;
+}
+
+.hero{
+height:420px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-header h2{
+font-size:26px;
+}
+
+.banner{
+padding:28px;
+}
+
+.banner h2{
+font-size:30px;
+}
+
+.cart{
+width:100%;
+}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.product img{
+height:160px;
+}
+
+.product-content{
+padding:12px;
+}
+
+.product-title{
+font-size:15px;
+}
+
+.price{
+font-size:22px;
+}
+
+.buy-btn{
+padding:12px;
+font-size:13px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+🎣 Darmowa dostawa od 199 zł • Wysyłka 24h • Jacob Baits
+</div>
+
+<header>
+
+<div class="container header-top">
+
+<div class="logo">
+
+<svg viewBox="0 0 200 200">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop stop-color="#16a34a"/>
+<stop offset="1" stop-color="#14532d"/>
+</linearGradient>
+</defs>
+
+<path fill="url(#g)" d="M25 100c20-38 70-60 120-45l30-18-10 34c11 11 17 27 17 43 0 44-41 79-95 79-34 0-65-16-82-39l-9 13-5-35 34-6zm47 9c0 11 9 20 21 20s21-9 21-20-9-20-21-20-21 9-21 20zm82-9a8 8 0 100-16 8 8 0 000 16z"/>
+</svg>
+
+Jacob Baits
+
+</div>
+
+<div class="search">
+<input type="text" placeholder="Szukaj pelletów, zanęt i akcesoriów">
+<button>Szukaj</button>
+</div>
+
+<div class="header-icons">
+
+<div class="icon-btn">❤</div>
+
+<div class="icon-btn" id="openCart">
+🛒
+<div class="cart-count" id="cartCount">0</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="menu">
+<div class="container">
+<a href="#">Pellety</a>
+<a href="#">Zanęty</a>
+<a href="#">Kulki</a>
+<a href="#">Boostery</a>
+<a href="#">Method Feeder</a>
+<a href="#">Akcesoria</a>
+<a href="#">Nowości</a>
+<a href="#">Promocje</a>
+</div>
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<div class="hero-badge">
+🔥 Nowa kolekcja 2026
+</div>
+
+<h1>Skuteczne zanęty i pellety dla wymagających wędkarzy</h1>
+
+<p>
+Profesjonalne produkty do method feedera, karpia i klasycznego łowienia.
+Sprawdzone nad wodą przez pasjonatów.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Kup teraz</a>
+<a href="#" class="btn btn-secondary">Zobacz nowości</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="container">
+
+<div class="features-grid">
+
+<div class="feature">
+<h3>🚚 Szybka wysyłka</h3>
+<p>Wysyłka nawet tego samego dnia.</p>
+</div>
+
+<div class="feature">
+<h3>🎣 Testowane produkty</h3>
+<p>Oferta tworzona przez wędkarzy.</p>
+</div>
+
+<div class="feature">
+<h3>⭐ Najlepsze opinie</h3>
+<p>Produkty polecane przez klientów.</p>
+</div>
+
+<div class="feature">
+<h3>💰 Dobre ceny</h3>
+<p>Promocje i zestawy dla stałych klientów.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-header">
+<h2>Popularne kategorie</h2>
+</div>
+
+<div class="categories">
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?q=80&w=800&auto=format&fit=crop">
+<div class="category-content">
+<h3>Pellety</h3>
+<p>Method feeder i klasyczne łowienie.</p>
+</div>
+</div>
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop">
+<div class="category-content">
+<h3>Zanęty</h3>
+<p>Mieszanki premium na każdą porę roku.</p>
+</div>
+</div>
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop">
+<div class="category-content">
+<h3>Boostery</h3>
+<p>Aromaty i dodatki do pelletów.</p>
+</div>
+</div>
+
+<div class="category">
+<img src="https://images.unsplash.com/photo-1517846693594-1567da72af75?q=80&w=800&auto=format&fit=crop">
+<div class="category-content">
+<h3>Akcesoria</h3>
+<p>Haki, koszyki i dodatki.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-header">
+<h2>Popularne produkty</h2>
+</div>
+
+<div class="products">
+
+<div class="product">
+<div class="product-tag">Bestseller</div>
+<img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?q=80&w=800&auto=format&fit=crop">
+<div class="product-content">
+<h3 class="product-title">Pellet Halibut 2mm</h3>
+<p class="product-desc">
+Uniwersalny pellet do method feedera i PVA.
+</p>
+<div class="price-row">
+<div class="price">19,99 zł</div>
+<div class="old-price">24,99 zł</div>
+</div>
+<button class="buy-btn"
+onclick="addToCart('Pellet Halibut 2mm','19.99','https://images.unsplash.com/photo-1510130387422-82bed34b37e9?q=80&w=800&auto=format&fit=crop')">
+Dodaj do koszyka
+</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-tag">Nowość</div>
+<img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop">
+<div class="product-content">
+<h3 class="product-title">Zanęta Karp Premium</h3>
+<p class="product-desc">
+Mocno pracująca zanęta na karpia.
+</p>
+<div class="price-row">
+<div class="price">16,90 zł</div>
+</div>
+<button class="buy-btn"
+onclick="addToCart('Zanęta Karp Premium','16.90','https://images.unsplash.com/photo-1498654896293-37aacf113fd9?q=80&w=800&auto=format&fit=crop')">
+Dodaj do koszyka
+</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-tag">Top</div>
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop">
+<div class="product-content">
+<h3 class="product-title">Booster Scopex</h3>
+<p class="product-desc">
+Świetny dodatek do kulek i zanęt.
+</p>
+<div class="price-row">
+<div class="price">22,50 zł</div>
+</div>
+<button class="buy-btn"
+onclick="addToCart('Booster Scopex','22.50','https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=800&auto=format&fit=crop')">
+Dodaj do koszyka
+</button>
+</div>
+</div>
+
+<div class="product">
+<div class="product-tag">Promo</div>
+<img src="https://images.unsplash.com/photo-1517846693594-1567da72af75?q=80&w=800&auto=format&fit=crop">
+<div class="product-content">
+<h3 class="product-title">Mix Method Feeder</h3>
+<p class="product-desc">
+Gotowa mieszanka na szybkie łowienie.
+</p>
+<div class="price-row">
+<div class="price">24,99 zł</div>
+</div>
+<button class="buy-btn"
+onclick="addToCart('Mix Method Feeder','24.99','https://images.unsplash.com/photo-1517846693594-1567da72af75?q=80&w=800&auto=format&fit=crop')">
+Dodaj do koszyka
+</button>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="banner">
+
+<div>
+<h2>Dołącz do Jacob Baits</h2>
+<p>
+Zapisz się do newslettera i odbierz promocje oraz informacje o nowych produktach.
+</p>
+</div>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Newsletter</a>
+<a href="#" class="btn btn-secondary">Promocje</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+<h3>Jacob Baits</h3>
+<p>
+Nowoczesny sklep wędkarski z pelletami, zanętami i akcesoriami.
+</p>
+</div>
+
+<div>
+<h3>Informacje</h3>
+<a href="#">Regulamin</a>
+<a href="#">Dostawa</a>
+<a href="#">Zwroty</a>
+<a href="#">Kontakt</a>
+</div>
+
+<div>
+<h3>Kategorie</h3>
+<a href="#">Pellety</a>
+<a href="#">Zanęty</a>
+<a href="#">Boostery</a>
+<a href="#">Method Feeder</a>
+</div>
+
+<div>
+<h3>Kontakt</h3>
+<p>kontakt@jacobbaits.pl</p>
+<p>+48 500 000 000</p>
+</div>
+
+</div>
+
+</footer>
+
+<!-- CART -->
+
+<div class="overlay" id="overlay"></div>
+
+<div class="cart" id="cart">
+
+<div class="cart-header">
+Koszyk
+<div class="close-cart" id="closeCart">×</div>
+</div>
+
+<div class="cart-items" id="cartItems">
+
+<p style="color:#6b7280;">
+Koszyk jest pusty
+</p>
+
+</div>
+
+<div class="cart-footer">
+
+<div class="total">
+Suma: <span id="total">0.00</span> zł
+</div>
+
+<button class="checkout-btn">
+Przejdź do płatności
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const cart = document.getElementById('cart');
+const overlay = document.getElementById('overlay');
+const openCart = document.getElementById('openCart');
+const closeCart = document.getElementById('closeCart');
+
+let total = 0;
+let count = 0;
+
+openCart.onclick = () => {
+cart.classList.add('open');
+overlay.classList.add('show');
+}
+
+closeCart.onclick = closeCartFunc;
+overlay.onclick = closeCartFunc;
+
+function closeCartFunc(){
+cart.classList.remove('open');
+overlay.classList.remove('show');
+}
+
+function addToCart(name,price,image){
+
+count++;
+
+document.getElementById('cartCount').innerText = count;
+
+total += parseFloat(price);
+
+document.getElementById('total').innerText = total.toFixed(2);
+
+const cartItems = document.getElementById('cartItems');
+
+if(cartItems.innerHTML.includes('Koszyk jest pusty')){
+cartItems.innerHTML = '';
+}
+
+cartItems.innerHTML += `
+<div class="cart-item">
+<img src="${image}">
+<div>
